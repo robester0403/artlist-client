@@ -1,29 +1,44 @@
-import { Link } from "react-router-dom";
+import {useNavigate } from "react-router-dom";
 import {useRef, useState, useEffect} from "react";
 import axios from "axios";
 import {getCoord} from "../../utils/api-utils";
+import { getCurrentDate } from "../../utils/calculations";
 import AddressForm from "../../components/AddressForm/AddressForm";
+
 import "./HomePage.scss"
-function HomePage(){
-    const [userLatitude, setUserLatitude] = useState(43.65363);
-    const [userLongitude, setUserLongitude] = useState(-79.38417);
+
+function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
+    const [clicked, setClicked] = useState(false);
     const formRef = useRef();
+    const navigate = useNavigate();
+
     const handleAddressSubmit = (e)=>{
         e.preventDefault();
         const form = formRef.current;
-        const inputAddress = form.user_address.value
+        const inputAddress = form.user_address.value;
+        if(inputAddress){
+        const dateClicked = getCurrentDate();
         const inputCity = form.user_city.value;
         const address = inputAddress.concat(" ", inputCity)
+        setUserDate(dateClicked)
         axios   
             .get(getCoord(address))
             .then((response)=>{
+                console.log(response.data.features[0].geometry)
                 const userCoord = (response.data.features[0].geometry.coordinates)
                 setUserLongitude(userCoord[0])
                 setUserLatitude(userCoord[1])
-
+                navigate("/aroundme")
             })
+        }
     }
-    const [clicked, setClicked] = useState(false);
+
+    const onClickExplore = (e)=>{
+        e.preventDefault();
+        const dateClicked = getCurrentDate();
+        setUserDate(dateClicked);
+        navigate("/explore")
+    }
     const onClick = (e)=>{
         e.preventDefault();
         setClicked(true)
@@ -32,6 +47,7 @@ function HomePage(){
         e.preventDefault();
         setClicked(false);
     }
+
     if(!clicked){
         return(
         <section className="home-page">
@@ -43,9 +59,9 @@ function HomePage(){
                 <button type="click" onClick = {onClick} className="home-page__link">
                     <p>Around Me</p>
                 </button>
-                <Link to="/explore" className="home-page__link">
+                <button type="click" onClick = {onClickExplore} className="home-page__link">
                     <p>Explore</p>
-                </Link>
+                </button>
                 </div>
             </div>
         </section>

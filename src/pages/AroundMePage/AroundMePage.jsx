@@ -1,48 +1,32 @@
-import AddressForm from "../../components/AddressForm/AddressForm"
-import {useRef, useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 import axios from "axios";
-import {getCoord} from "../../utils/api-utils";
+import {getEvents} from "../../utils/api-utils"
+import {getDistance} from "../../utils/calculations"
 
-const { point } = require("@turf/helpers");
-const distance = require("@turf/distance").default;
-
-function AroundMePage(){
-    const [userLatitude, setUserLatitude] = useState(43.65363);
-    const [userLongitude, setUserLongitude] = useState(-79.38417);
-    const formRef = useRef();
-    const handleAddressSubmit = (e)=>{
-        e.preventDefault();
-        const form = formRef.current;
-        const inputAddress = form.user_address.value
-        const inputCity = form.user_city.value;
-        const address = inputAddress.concat(" ", inputCity)
-        axios   
-            .get(getCoord(address))
-            .then((response)=>{
-                const userCoord = (response.data.features[0].geometry.coordinates)
-                setUserLongitude(userCoord[0])
-                setUserLatitude(userCoord[1])
-            })
-    }
-    const [test, setTest] = useState(null);
-
+function AroundMePage({userLatitude, userLongitude, userDate}){
+    const [eventDistance, setEventDistance] = useState(null);
+    const [eventArr, setEventArr] = useState(null);
     useEffect(() => {
-        axios.get("http://localhost:8080/api/events/16").then((response) => {
-        let longitude = response.data.longitude;
-        let latitude = response.data.latitude;
-        const from = point([longitude, latitude]);
-        const to = point([userLongitude, userLatitude]);
-        const options = { units: "kilometers" };
-        const result = distance(from, to, options);
-        setTest(result);
+        axios.get(getEvents()).then((response) => {
+            const events = response.data
+            const eventsDistance = [];
+            events.forEach(event=>{
+                const eventLongitude = event.longitude;
+                const eventLatitude = event.latitude;
+                eventsDistance.push(getDistance(userLatitude, userLongitude, eventLatitude, eventLongitude))
+            })
+            setEventDistance(eventsDistance)
+
         });
     }, []);
-
+            console.log(eventDistance)
     
     return (
         <>
-            <p>{test}</p>
-            <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit}/>
+            
+            <p>{userLatitude}</p>
+            <p>{userLongitude}</p>
+            <p>{userDate}</p>
         </>
     )
 }
