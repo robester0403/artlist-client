@@ -5,8 +5,7 @@ export function getCurrentDate() {
   const date = new Date().getDate();
   const month = new Date().getMonth();
   const year = new Date().getFullYear();
-  const hours = new Date().getHours();
-  return date + "/" + month + "/" + year + "  " + hours;
+  return date + "/" + month + "/" + year;
 }
 
 export function getDistance(userlat, userlong, eventlat, eventlong) {
