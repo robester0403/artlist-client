@@ -3,7 +3,6 @@ import { Link } from "react-router-dom"
 
 
 function EventsContainer({eventArr}){
-    console.log(eventArr)
     return(
         <section>
         {eventArr.map(event =>{
