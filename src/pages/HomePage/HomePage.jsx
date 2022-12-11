@@ -1,5 +1,5 @@
 import {useNavigate } from "react-router-dom";
-import {useRef, useState, useEffect} from "react";
+import {useRef, useState} from "react";
 import axios from "axios";
 import {getCoord} from "../../utils/api-utils";
 import { getCurrentDate } from "../../utils/calculations";
@@ -24,7 +24,6 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         axios   
             .get(getCoord(address))
             .then((response)=>{
-                console.log(response.data.features[0].geometry)
                 const userCoord = (response.data.features[0].geometry.coordinates)
                 setUserLongitude(userCoord[0])
                 setUserLatitude(userCoord[1])

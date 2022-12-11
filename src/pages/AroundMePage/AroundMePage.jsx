@@ -1,32 +1,39 @@
-import {useState, useEffect} from "react";
+import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
-import {getDistance} from "../../utils/calculations"
+import {getDistance, getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
-function AroundMePage({userLatitude, userLongitude, userDate}){
-    const [eventDistance, setEventDistance] = useState(null);
-    const [eventArr, setEventArr] = useState(null);
+function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, eventArr}){
+
     useEffect(() => {
         axios.get(getEvents()).then((response) => {
             const events = response.data
-            const eventsDistance = [];
+            const eventArray = []
             events.forEach(event=>{
-                const eventLongitude = event.longitude;
-                const eventLatitude = event.latitude;
-                eventsDistance.push(getDistance(userLatitude, userLongitude, eventLatitude, eventLongitude))
+                event.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude)
+                event.userClick = userDate
+                event.date = getDateFormat(event)
+                event.dateNum = dateToNum(event.date)
+                if (event.dateNum > event.userClick){
+                    eventArray.push(event)
+                }
             })
-            setEventDistance(eventsDistance)
-
+            eventArray.sort(getEventsSorted)
+            setEventArr(eventArray)
         });
     }, []);
-            console.log(eventDistance)
+
+    if (!eventArr){
+        return <h1>Loading...</h1>
+    }
     
     return (
-        <>
-            
+        <>  
             <p>{userLatitude}</p>
             <p>{userLongitude}</p>
             <p>{userDate}</p>
+            <EventsContainer eventArr ={eventArr}/>
         </>
     )
 }
