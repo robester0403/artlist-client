@@ -4,5 +4,8 @@ const API_URL = "http://localhost:8080/api";
 
 export const getEvents = () => API_URL + "/events";
 export const getEvent = (id) => API_URL + "/events/" + id;
+export const getOrganizationEvents = (id) =>
+  API_URL + "/events/organization/" + id;
+export const getSingleOrganization = (id) => API_URL + "/organizations/" + id;
 export const getCoord = (address) =>
   GEOAPIFY_URL + address + `&apiKey=${GEOAPIFY_KEY}`;

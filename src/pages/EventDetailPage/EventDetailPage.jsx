@@ -19,6 +19,9 @@ function EventDetailPage (){
     const [googleMap, setGoogleMap] = useState(null);
     const [time, setTime] = useState("");
     const [ticketLink, setTicketLink] = useState("");
+    const [venueId, setVenueId] = useState(null);
+    const [genreId, setGenreId] = useState(null);
+    const [organizationId, setOrganizationId] = useState(null);
     const {id} = useParams();
 
     useEffect(()=>{
@@ -38,6 +41,9 @@ function EventDetailPage (){
                 setDate(eventDate);
                 setTime(information.time);
                 setTicketLink(information.ticket_link);
+                setGenreId(information.genre_id);
+                setVenueId(information.venue_id);
+                setOrganizationId(information.organization_id);
             })
     },[])
     return(
@@ -55,6 +61,9 @@ function EventDetailPage (){
                 date= {date}
                 time= {time}
                 ticketLink = {ticketLink}
+                genreId = {genreId}
+                organizationId = {organizationId}
+                venueId = {venueId}
                 />
             <Footer/>
         </>

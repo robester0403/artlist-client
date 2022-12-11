@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import AroundMePage from "./pages/AroundMePage/AroundMePage";
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
+import OrganizationPage from "./pages/OrganizationPage/OrganizationPage";
 
 import "./app.scss";
 import EventDetailPage from "./pages/EventDetailPage/EventDetailPage";
@@ -12,6 +13,7 @@ function App() {
   const [userLongitude, setUserLongitude] = useState(0);
   const [userDate, setUserDate] = useState(0);
   const [eventArr, setEventArr] = useState(null);
+  const [organization, setOrganization] = useState(null);
 
   useEffect(() => {
     setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
@@ -51,6 +53,18 @@ function App() {
         />
         <Route path="/explore" element={<ExplorePage userDate={userDate} />} />
         <Route path="/event/:id" element={<EventDetailPage />} />
+        <Route
+          path="/organization/:id"
+          element={
+            <OrganizationPage
+              organization={organization}
+              setOrganization={setOrganization}
+              userDate={userDate}
+              setEventArr={setEventArr}
+              eventArr={eventArr}
+            />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
