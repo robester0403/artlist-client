@@ -9,6 +9,7 @@ function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, event
     useEffect(() => {
         axios.get(getEvents()).then((response) => {
             const events = response.data
+            console.log(events)
             const eventArray = []
             events.forEach(event=>{
                 event.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude)

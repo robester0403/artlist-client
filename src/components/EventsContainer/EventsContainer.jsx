@@ -1,4 +1,5 @@
 import EventCard from "../EventCard/EventCard"
+import { Link } from "react-router-dom"
 
 
 function EventsContainer({eventArr}){
@@ -7,17 +8,16 @@ function EventsContainer({eventArr}){
         <section>
         {eventArr.map(event =>{
             return(
+                <Link to ={`/event/${event.event_id}`} key = {event.event_id}>
                     <EventCard 
-                    key = {event.event_id}
-
                     name = {event.event_name}
                     image={event.event_image}
-                    genre={event.event_genre}
-                    location={event.location}
+                    description = {event.long_description}
                     date={event.date}
                     time={event.time}
                     distance = {event.distance}
                     />
+                    </Link>
             )
         }) }
 
