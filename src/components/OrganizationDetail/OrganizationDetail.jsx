@@ -1,5 +1,4 @@
 function OrganizationDetail ({organization}) {
-    console.log(organization.organization_name)
     return(
         <>
         <p>{organization.organization_name}</p>
