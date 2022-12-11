@@ -1,48 +1,39 @@
-import AddressForm from "../../components/AddressForm/AddressForm"
-import {useRef, useState, useEffect} from "react";
+import { useEffect} from "react";
 import axios from "axios";
-import {getCoord} from "../../utils/api-utils";
+import {getEvents} from "../../utils/api-utils"
+import {getDistance, getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
-const { point } = require("@turf/helpers");
-const distance = require("@turf/distance").default;
-
-function AroundMePage(){
-    const [userLatitude, setUserLatitude] = useState(43.65363);
-    const [userLongitude, setUserLongitude] = useState(-79.38417);
-    const formRef = useRef();
-    const handleAddressSubmit = (e)=>{
-        e.preventDefault();
-        const form = formRef.current;
-        const inputAddress = form.user_address.value
-        const inputCity = form.user_city.value;
-        const address = inputAddress.concat(" ", inputCity)
-        axios   
-            .get(getCoord(address))
-            .then((response)=>{
-                const userCoord = (response.data.features[0].geometry.coordinates)
-                setUserLongitude(userCoord[0])
-                setUserLatitude(userCoord[1])
-            })
-    }
-    const [test, setTest] = useState(null);
+function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, eventArr}){
 
     useEffect(() => {
-        axios.get("http://localhost:8080/api/events/16").then((response) => {
-        let longitude = response.data.longitude;
-        let latitude = response.data.latitude;
-        const from = point([longitude, latitude]);
-        const to = point([userLongitude, userLatitude]);
-        const options = { units: "kilometers" };
-        const result = distance(from, to, options);
-        setTest(result);
+        axios.get(getEvents()).then((response) => {
+            const events = response.data
+            const eventArray = []
+            events.forEach(event=>{
+                event.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude)
+                event.userClick = userDate
+                event.date = getDateFormat(event)
+                event.dateNum = dateToNum(event.date)
+                if (event.dateNum > event.userClick){
+                    eventArray.push(event)
+                }
+            })
+            eventArray.sort(getEventsSorted)
+            setEventArr(eventArray)
         });
     }, []);
 
+    if (!eventArr){
+        return <h1>Loading...</h1>
+    }
     
     return (
-        <>
-            <p>{test}</p>
-            <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit}/>
+        <>  
+            <p>{userLatitude}</p>
+            <p>{userLongitude}</p>
+            <p>{userDate}</p>
+            <EventsContainer eventArr ={eventArr}/>
         </>
     )
 }
