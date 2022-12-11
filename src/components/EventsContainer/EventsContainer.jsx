@@ -12,8 +12,7 @@ function EventsContainer({eventArr}){
 
                     name = {event.event_name}
                     image={event.event_image}
-                    genre={event.event_genre}
-                    location={event.location}
+                    description = {event.long_description}
                     date={event.date}
                     time={event.time}
                     distance = {event.distance}

@@ -1,0 +1,56 @@
+.eventcard{
+    font-family: Arial, Helvetica, sans-serif;
+    height: 25rem;
+    padding:0.75rem;
+
+    &__container-image{
+        height:12rem;
+        width:100%;
+        border-radius:10px;
+    }
+
+    &__image{
+        object-fit:cover;
+        width:100%;
+        height:100%;
+    }
+
+    &__container-information{
+        display: flex;
+        flex-wrap: wrap;
+
+    }
+    &__date{
+        width:33%;
+        font-size:0.85rem;
+        font-style: italic;
+    }
+    &__time{
+        width:33%;
+        font-size:0.85rem;
+        font-style: italic;
+    }
+    &__distance{
+        width:33%;
+        font-size:0.85rem;
+        font-style: italic;
+    }
+    &__title{
+        padding:0.5rem 0rem;
+        width:100%;
+        font-size:1.5rem;
+        font-weight:bold;
+    }
+    &__description{
+        padding:0.5rem 0rem;
+        width:100%;
+        display: block;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        text-overflow: ellipsis;
+        overflow: hidden;
+
+
+    }
+}
