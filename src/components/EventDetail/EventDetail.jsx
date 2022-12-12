@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import "./EventDetail.scss"
 
 
 function EventDetail({name, image, genre, location, venue, description, organization, googleMap, date, time, ticketLink, genreId, venueId, organizationId}){
