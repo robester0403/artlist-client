@@ -5,6 +5,7 @@ import AroundMePage from "./pages/AroundMePage/AroundMePage";
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
 import OrganizationPage from "./pages/OrganizationPage/OrganizationPage";
 import GenrePage from "./pages/GenrePage/GenrePage";
+import VenuePage from "./pages/VenuePage/VenuePage";
 import EventDetailPage from "./pages/EventDetailPage/EventDetailPage";
 import "./app.scss";
 
@@ -15,6 +16,7 @@ function App() {
   const [eventArr, setEventArr] = useState(null);
   const [organization, setOrganization] = useState(null);
   const [genre, setGenre] = useState(null);
+  const [venue, setVenue] = useState(null);
 
   useEffect(() => {
     setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
@@ -72,6 +74,18 @@ function App() {
             <GenrePage
               genre={genre}
               setGenre={setGenre}
+              userDate={userDate}
+              setEventArr={setEventArr}
+              eventArr={eventArr}
+            />
+          }
+        />
+        <Route
+          path="/venue/:id"
+          element={
+            <VenuePage
+              venue={venue}
+              setVenue={setVenue}
               userDate={userDate}
               setEventArr={setEventArr}
               eventArr={eventArr}

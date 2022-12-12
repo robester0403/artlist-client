@@ -7,7 +7,9 @@ export const getEvent = (id) => API_URL + "/events/" + id;
 export const getOrganizationEvents = (id) =>
   API_URL + "/events/organization/" + id;
 export const getGenreEvents = (id) => API_URL + "/events/genre/" + id;
+export const getVenueEvents = (id) => API_URL + "/events/venue/" + id;
 export const getSingleOrganization = (id) => API_URL + "/organizations/" + id;
 export const getSingleGenre = (id) => API_URL + "/genres/" + id;
+export const getSingleVenue = (id) => API_URL + "/venues/" + id;
 export const getCoord = (address) =>
   GEOAPIFY_URL + address + `&apiKey=${GEOAPIFY_KEY}`;
