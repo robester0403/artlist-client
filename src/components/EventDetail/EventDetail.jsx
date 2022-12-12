@@ -34,7 +34,7 @@ function EventDetail({name, image, genre, location, venue, description, organiza
                 </div>
                 <div className="event-detail__link-container">
                     <a href={ticketLink} className="event-detail__link">
-                        <p>Ticket</p>
+                        <p className="event-detail__link-text">Ticket</p>
                     </a>
                 </div>
             </div>
