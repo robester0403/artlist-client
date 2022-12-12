@@ -10,23 +10,29 @@ import EventDetailPage from "./pages/EventDetailPage/EventDetailPage";
 import "./app.scss";
 
 function App() {
-  const [userLatitude, setUserLatitude] = useState(0);
-  const [userLongitude, setUserLongitude] = useState(0);
-  const [userDate, setUserDate] = useState(0);
+  const [userLatitude, setUserLatitude] = useState(
+    JSON.parse(sessionStorage.getItem("userLatitude")) || 0
+  );
+  const [userLongitude, setUserLongitude] = useState(
+    JSON.parse(sessionStorage.getItem("userLongitude")) || 0
+  );
+  const [userDate, setUserDate] = useState(
+    JSON.parse(sessionStorage.getItem("userDate")) || 0
+  );
   const [eventArr, setEventArr] = useState(null);
   const [organization, setOrganization] = useState(null);
   const [genre, setGenre] = useState(null);
   const [venue, setVenue] = useState(null);
 
-  useEffect(() => {
-    setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
-    setUserLongitude(JSON.parse(window.localStorage.getItem("userLongitude")));
-  }, []);
+  // useEffect(() => {
+  //   setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
+  //   setUserLongitude(JSON.parse(window.localStorage.getItem("userLongitude")));
+  // }, []);
 
-  useEffect(() => {
-    sessionStorage.setItem("userLatitude", JSON.stringify(userLatitude));
-    sessionStorage.setItem("userLongitude", JSON.stringify(userLongitude));
-  }, [userLatitude]);
+  // useEffect(() => {
+  //   sessionStorage.setItem("userLatitude", JSON.stringify(userLatitude));
+  //   sessionStorage.setItem("userLongitude", JSON.stringify(userLongitude));
+  // }, [userLatitude]);
 
   return (
     <BrowserRouter>
