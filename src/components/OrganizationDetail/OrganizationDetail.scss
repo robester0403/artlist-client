@@ -3,7 +3,7 @@
 @use "../../styles/partials/variables" as *;
 
 
-.venue-detail{
+.organization-detail{
     margin: $filter-container-spacing;
 
     &__title-container{
@@ -15,6 +15,10 @@
         background-color: white;
     }
 
+    &__body{
+        display: flex;
+    }
+
     &__hero-container{
         width:100%;
     }
@@ -24,17 +28,14 @@
         width: 100%;
     }
 
-    &__body{
-        display: flex;
-    }
-
-    &__map-container{
+    &__description-container{
         width:70%;
+        padding-right:0.5rem;
+        border-right:1px $border-gray solid;
     }
 
-    &__map{
-        object-fit: cover;
-        width: 100%;
+    &__description{
+        font-size: $mobile-description;
     }
 
     &__link-container{
@@ -62,5 +63,6 @@
         font-style: italic;
         font-weight: 300;
         font-size: 1.25rem;
+
     }
 }

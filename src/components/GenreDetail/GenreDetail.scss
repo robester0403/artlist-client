@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.genre-detail{
+    margin: $filter-container-spacing;
+
+    &__title-container{
+        width:100%;
+    }
+
+    &__title{
+        margin: $title-top-bottom-padding 0;
+        background-color: white;
+    }
+
+    &__body{
+        display: flex;
+    }
+
+    &__hero-container{
+        width:100%;
+    }
+
+    &__hero{
+        object-fit: cover;
+        width: 100%;
+    }
+
+    &__subtitle-container{
+        margin-top:2rem;
+    }
+
+    &__subtitle{
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.25rem;
+    }
+}

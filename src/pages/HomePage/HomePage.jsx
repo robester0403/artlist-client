@@ -39,7 +39,7 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         e.preventDefault();
         const dateClicked = getCurrentDate();
         setUserDate(dateClicked);
-        sessionStorage.setItem("userDate, dateClicked")
+        sessionStorage.setItem("userDate", dateClicked)
         // sessionStorage.removeItem("")
         navigate("/explore")
     }
