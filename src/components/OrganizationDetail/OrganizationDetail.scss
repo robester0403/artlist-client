@@ -4,7 +4,6 @@
 
 
 .organization-detail{
-    // background-color: green;
     margin: $filter-container-spacing;
 
     &__title-container{
@@ -13,13 +12,13 @@
 
     &__title{
         margin: $title-top-bottom-padding 0;
-        // border-bottom: 3px $border-gray solid;
         background-color: white;
     }
 
     &__body{
         display: flex;
     }
+
     &__hero-container{
         width:100%;
     }
@@ -54,5 +53,16 @@
 
     &__link{
         color:white;
+    }
+
+    &__subtitle-container{
+        margin-top:2rem;
+    }
+
+    &__subtitle{
+        font-style: italic;
+        font-weight: 300;
+        font-size: 1.25rem;
+
     }
 }

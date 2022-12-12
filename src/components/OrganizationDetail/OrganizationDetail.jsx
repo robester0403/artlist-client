@@ -20,6 +20,9 @@ function OrganizationDetail ({organization}) {
                     </a>
                 </div>
             </div>
+            <div className="organization-detail__subtitle-container">
+                <h2 className="organization-detail__subtitle">Events</h2>
+            </div>
         </section>
     )
 }
