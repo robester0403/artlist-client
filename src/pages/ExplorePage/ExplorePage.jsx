@@ -5,6 +5,7 @@ import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
 import {getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import "./ExplorePage.scss"
 
 function ExplorePage ({userDate, setEventArr, eventArr}){
     useEffect(() => {
@@ -31,11 +32,11 @@ if (!eventArr){
     )
 }
     return(
-        <>
+        <section className="explore-page">
         <Header/>
         <EventsContainer eventArr={eventArr}/>
         <Footer/>
-        </>
+        </section>
     )
 }
 
