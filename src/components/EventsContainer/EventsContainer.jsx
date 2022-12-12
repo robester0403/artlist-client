@@ -1,10 +1,11 @@
 import EventCard from "../EventCard/EventCard"
 import { Link } from "react-router-dom"
+import "./EventsContainer.scss"
 
 
 function EventsContainer({eventArr}){
     return(
-        <section>
+        <section className="events-container">
         {eventArr.map(event =>{
             return(
                 <Link to ={`/event/${event.event_id}`} key = {event.event_id}>

@@ -1,10 +1,12 @@
-.eventcard{
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
 
-    height: 25rem;
-    padding:0.75rem;
+.eventcard{
+    background-color: white;
+    margin:$event-card-margin;
 
     &__container-image{
-        height:12rem;
         width:100%;
         border-radius:10px;
     }
@@ -12,12 +14,12 @@
     &__image{
         object-fit:cover;
         width:100%;
-        height:100%;
     }
 
     &__container-information{
         display: flex;
         flex-wrap: wrap;
+        padding: 0.5rem 0.75rem ;
 
     }
     &__date{
@@ -42,15 +44,13 @@
         font-weight:bold;
     }
     &__description{
-        padding:0.5rem 0rem;
+        margin:0.5rem 0rem;
         width:100%;
         display: block;
         display: -webkit-box;
         -webkit-box-orient: vertical;
-        -webkit-line-clamp: 3;
+        -webkit-line-clamp: 4;
         text-overflow: ellipsis;
         overflow: hidden;
-
-
     }
 }

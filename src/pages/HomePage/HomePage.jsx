@@ -21,12 +21,15 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         const inputCity = form.user_city.value;
         const address = inputAddress.concat(" ", inputCity)
         setUserDate(dateClicked)
+        sessionStorage.setItem("userDate", dateClicked)
         axios   
             .get(getCoord(address))
             .then((response)=>{
                 const userCoord = (response.data.features[0].geometry.coordinates)
                 setUserLongitude(userCoord[0])
                 setUserLatitude(userCoord[1])
+                sessionStorage.setItem("userLongitude", userCoord[0])
+                sessionStorage.setItem("userLatitude", userCoord[1])
                 navigate("/aroundme")
             })
         }
@@ -36,6 +39,8 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         e.preventDefault();
         const dateClicked = getCurrentDate();
         setUserDate(dateClicked);
+        sessionStorage.setItem("userDate, dateClicked")
+        // sessionStorage.removeItem("")
         navigate("/explore")
     }
     const onClick = (e)=>{

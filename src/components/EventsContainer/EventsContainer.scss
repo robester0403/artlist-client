@@ -1,0 +1,8 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.events-container{
+    background-color: $dark-gray;
+    padding: $event-container-top-bottom-padding 0;
+}
