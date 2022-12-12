@@ -24,16 +24,6 @@ function App() {
   const [genre, setGenre] = useState(null);
   const [venue, setVenue] = useState(null);
 
-  // useEffect(() => {
-  //   setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
-  //   setUserLongitude(JSON.parse(window.localStorage.getItem("userLongitude")));
-  // }, []);
-
-  // useEffect(() => {
-  //   sessionStorage.setItem("userLatitude", JSON.stringify(userLatitude));
-  //   sessionStorage.setItem("userLongitude", JSON.stringify(userLongitude));
-  // }, [userLatitude]);
-
   return (
     <BrowserRouter>
       <Routes>
