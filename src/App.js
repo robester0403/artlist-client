@@ -54,7 +54,16 @@ function App() {
             />
           }
         />
-        <Route path="/explore" element={<ExplorePage userDate={userDate} />} />
+        <Route
+          path="/explore"
+          element={
+            <ExplorePage
+              userDate={userDate}
+              setEventArr={setEventArr}
+              eventArr={eventArr}
+            />
+          }
+        />
         <Route path="/event/:id" element={<EventDetailPage />} />
         <Route
           path="/organization/:id"
