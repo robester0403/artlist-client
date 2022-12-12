@@ -39,7 +39,7 @@ function EventDetail({name, image, genre, location, venue, description, organiza
                 </div>
             </div>
             <div className="event-detail__map-container">
-                <iframe className="event-detail__map" src={`https://www.google.com/maps/embed?pb=${googleMap}`}></iframe>
+                <iframe className="event-detail__map" src={`https://www.google.com/maps/embed?pb=${googleMap}`} title="event-map"></iframe>
             </div>
         </article>
     )
