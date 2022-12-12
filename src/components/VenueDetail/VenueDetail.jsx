@@ -1,5 +1,4 @@
 function VenueDetail ({venue}){
-    console.log(venue)
     return(
         <>
         <p>{venue.venue_name}</p>
