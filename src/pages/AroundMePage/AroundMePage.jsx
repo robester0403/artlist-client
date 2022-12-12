@@ -1,3 +1,6 @@
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
+
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
@@ -30,10 +33,12 @@ function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, event
     
     return (
         <>  
+            <Header/>
             <p>{userLatitude}</p>
             <p>{userLongitude}</p>
             <p>{userDate}</p>
             <EventsContainer eventArr ={eventArr}/>
+            <Footer/>
         </>
     )
 }

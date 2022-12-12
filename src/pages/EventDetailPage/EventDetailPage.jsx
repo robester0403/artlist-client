@@ -46,6 +46,11 @@ function EventDetailPage (){
                 setOrganizationId(information.organization_id);
             })
     },[])
+    if (!name || !image || !genre || !location || !venue || !description || !organization ||!googleMap || !date || !time || !ticketLink || !genreId || !venueId || !organizationId){
+        return(
+            <h1> Loading...</h1>
+        )
+    }
     return(
         <>
             <Header/>

@@ -21,13 +21,12 @@ function App() {
   useEffect(() => {
     setUserLatitude(JSON.parse(window.localStorage.getItem("userLatitude")));
     setUserLongitude(JSON.parse(window.localStorage.getItem("userLongitude")));
-    // setUserDate(JSON.parse(window.localStorage.getItem('userLongitude')));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem("userLatitude", userLatitude);
-    window.localStorage.setItem("userLongitude", userLongitude);
-  }, []);
+    sessionStorage.setItem("userLatitude", JSON.stringify(userLatitude));
+    sessionStorage.setItem("userLongitude", JSON.stringify(userLongitude));
+  }, [userLatitude]);
 
   return (
     <BrowserRouter>
