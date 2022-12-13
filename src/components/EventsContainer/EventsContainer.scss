@@ -5,4 +5,11 @@
 .events-container{
     background-color: $dark-gray;
     padding: $event-container-top-bottom-padding 0;
+
+    @include desktop{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: $event-container-top-bottom-padding-desktop 0;
+    }
 }

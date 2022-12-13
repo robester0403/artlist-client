@@ -5,7 +5,7 @@ import EventsContainer from "../../components/EventsContainer/EventsContainer";
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
-import {getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import {getDateFormat, dateToNum, getEventsSorted, getShortDescription} from "../../utils/calculations"
 import "./ExplorePage.scss"
 
 
@@ -18,6 +18,7 @@ function ExplorePage ({userDate, setEventArr, eventArr}){
             const eventArray = []
             events.forEach(event=>{
                 event.date = getDateFormat(event)
+                event.long_description = getShortDescription(event.long_description);
                 event.dateNum = dateToNum(event.date)
                 if (event.dateNum > userDate){
                     eventArray.push(event)

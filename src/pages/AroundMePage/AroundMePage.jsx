@@ -5,7 +5,7 @@ import SubHeader from "../../components/SubHeader/SubHeader";
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
-import {getDistance, getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import {getDistance, getDateFormat, dateToNum, getEventsSorted, getShortDescription} from "../../utils/calculations"
 import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
 import "./AroundMePage.scss"
@@ -16,6 +16,8 @@ function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, event
             const events = response.data
             const eventArray = []
             events.forEach(event=>{
+                console.log(event)
+                event.long_description = getShortDescription(event.long_description);
                 event.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude)
                 event.userClick = userDate
                 event.date = getDateFormat(event)

@@ -40,7 +40,6 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         const dateClicked = getCurrentDate();
         setUserDate(dateClicked);
         sessionStorage.setItem("userDate", dateClicked)
-        // sessionStorage.removeItem("")
         navigate("/explore")
     }
     const onClick = (e)=>{

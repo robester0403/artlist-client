@@ -30,6 +30,10 @@
         display: flex;
         flex-wrap: wrap;
         padding: 0.5rem 0.75rem;
+
+        @include tablet{
+            padding: 1rem 1.5rem;
+        }
     }
 
     &__date{
@@ -60,19 +64,7 @@
     &__description{
         margin:0.5rem 0rem;
         width:100%;
-        // display: block;
-        display: -webkit-box;
-        overflow: hidden;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        // text-overflow: ellipsis;
-
-
-        // @include tablet{
-        //     -webkit-line-clamp: 3;
-        //     text-overflow: ellipsis;
-        //     overflow: hidden;
-        // }
+        display: block;
     }
 
     //for .eventcard
@@ -80,5 +72,10 @@
         height:16rem;
         display: flex;
         margin:$event-card-margin-tablet;
+    }
+
+    @include desktop{
+        width:65rem;
+        margin:2.25rem;
     }
 }
