@@ -2,13 +2,11 @@
 @use "../../styles/partials/colors" as *;
 @use "../../styles/partials/variables" as *;
 
-.explore{
-    &__subheader{
-        padding:$event-card-margin;
-        background-color: black;
-        display: flex;
-        justify-content: space-between;
-    }
+.subheader{
+    padding:$event-card-margin;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
 
     &__nav{
         width:33%;

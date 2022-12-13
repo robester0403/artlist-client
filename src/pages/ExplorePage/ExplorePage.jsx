@@ -1,11 +1,13 @@
 import Header from "../../components/Header/Header"
 import Footer from "../../components/Footer/Footer"
+import SubHeader from "../../components/SubHeader/SubHeader";
 import EventsContainer from "../../components/EventsContainer/EventsContainer";
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
 import {getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
 import "./ExplorePage.scss"
+
 
 function ExplorePage ({userDate, setEventArr, eventArr}){
     useEffect(() => {
@@ -32,10 +34,11 @@ if (!eventArr){
     )
 }
     return(
-        <section className="explore-page">
-        <Header/>
-        <EventsContainer eventArr={eventArr}/>
-        <Footer/>
+        <section className="explore">
+            <Header/>
+            <SubHeader title={`Explore`}/>
+            <EventsContainer eventArr={eventArr}/>
+            <Footer/>
         </section>
     )
 }
