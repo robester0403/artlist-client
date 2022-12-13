@@ -54,32 +54,34 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
 
     if(!clicked){
         return(
-        <section className="home-page">
-            <div className="home-page__logo-container">
-                <p>Where the logo goes</p>
+            <div className="home-page__wrap">
+                <section className="home-page">
+                    <div className="home-page__logo-container">
+                        <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
+                    </div>
+                    <div className="home-page__link-container">
+                        <button type="click" onClick = {onClick} className="home-page__link">
+                            Around Me
+                        </button>
+                        <button type="click" onClick = {onClickExplore} className="home-page__link">
+                            Explore
+                        </button>
+                    </div>
+                </section>
             </div>
-            <div className="home-page__link-container">
-                <div>
-                <button type="click" onClick = {onClick} className="home-page__link">
-                    <p>Around Me</p>
-                </button>
-                <button type="click" onClick = {onClickExplore} className="home-page__link">
-                    <p>Explore</p>
-                </button>
-                </div>
-            </div>
-        </section>
     )
     }else{
         return(
-            <section className="home-page">
-            <div className="home-page__logo-container">
-                <p>Where the logo goes</p>
+            <div className="home-page__wrap">
+                <section className="home-page">
+                <div className="home-page__logo-container">
+                        <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
+                    </div>
+                    <div className="home-page__link-container">
+                        <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit} onClickBack={onClickBack}/>
+                    </div>
+                 </section>
             </div>
-            <div className="home-page__link-container">
-                <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit} onClickBack={onClickBack}/>
-            </div>
-        </section>
         )
     }
 }

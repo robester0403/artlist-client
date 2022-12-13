@@ -1,8 +1,76 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
 .home-page{
-    height:100vh;
-    width:100vw;
-    background-image: url("http://localhost:8080/images/home-page-background.jpg") ;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
+
+    &__wrap{
+        position: relative;
+    }
+
+    &__wrap:before{
+        content: ' ';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        opacity: 0.7;
+        background-image: url("http://localhost:8080/images/home-page-background.jpg");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        background-size: cover;
+    }
+
+    &__logo-container{
+        padding-top:5rem;
+        padding-bottom:5rem;
+        width:20rem;
+        height:7rem;
+        margin-left:auto;
+        margin-right: auto;
+    }
+
+    &__logo{
+        object-fit: cover;
+        width:100%;
+    }
+
+    &__link-container{
+        margin-top:8rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__link{
+        margin:0.5rem 0;
+        width: 7rem;
+        height:3.5rem;
+        appearance: none;
+        background-color: $home-white;
+        border-radius: $button-border-radius;
+        border-width: 0;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+        color: $dark-gray;
+        cursor: pointer;
+
+        &:focus{
+            box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+        }
+
+        &:hover{
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            background-color: white;
+            transform: translateY(-1px);
+        }
+        &:active {
+            box-shadow: #D6D6E7 0 3px 7px inset;
+            transform: translateY(1px);
+          }
+    }
+    
+
 }
