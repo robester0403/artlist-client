@@ -6,51 +6,76 @@
     background-color: white;
     margin:$event-card-margin;
 
-    &__container-image{
+    &__image-container{
         width:100%;
-        border-radius:10px;
+
+        @include tablet{
+            height:100%;
+            width:auto;
+            max-width: 75%;
+        }
     }
 
     &__image{
         object-fit:cover;
         width:100%;
+
+        @include tablet{
+            height:100%;
+            width:auto;
+        }
     }
 
-    &__container-information{
+    &__information-container{
         display: flex;
         flex-wrap: wrap;
-        padding: 0.5rem 0.75rem ;
+        padding: 0.5rem 0.75rem;
 
+        @include tablet{
+            padding: 1rem 1.5rem;
+        }
     }
+
     &__date{
         width:33%;
         font-size:0.85rem;
         font-style: italic;
     }
+
     &__time{
         width:33%;
         font-size:0.85rem;
         font-style: italic;
     }
+
     &__distance{
         width:33%;
         font-size:0.85rem;
         font-style: italic;
     }
+
     &__title{
         padding:0.5rem 0rem;
         width:100%;
         font-size:1.5rem;
         font-weight:bold;
     }
+
     &__description{
         margin:0.5rem 0rem;
         width:100%;
         display: block;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        -webkit-line-clamp: 4;
-        text-overflow: ellipsis;
-        overflow: hidden;
+    }
+
+    //for .eventcard
+    @include tablet{
+        height:16rem;
+        display: flex;
+        margin:$event-card-margin-tablet;
+    }
+
+    @include desktop{
+        width:65rem;
+        margin:2.25rem;
     }
 }

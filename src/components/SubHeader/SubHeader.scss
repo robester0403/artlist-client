@@ -3,13 +3,20 @@
 @use "../../styles/partials/variables" as *;
 
 .subheader{
-    padding:$event-card-margin;
     background-color: black;
+    padding:$event-card-margin;
+
+    &__wrap{
     display: flex;
     justify-content: space-between;
 
+    @include desktop{
+        width:62.5rem;
+
+    }
+}
     &__nav{
-        width:33%;
+        width:30%;
         display: flex;
         align-items: center;
         
@@ -27,7 +34,7 @@
     }
 
     &__title-container{
-        width:33%;
+        width:30%;
         display: flex;
         justify-content: center;
     }
@@ -38,7 +45,7 @@
     }
 
     &__search-container{
-        width:33%;
+        width:30%;
         display: flex;
         justify-content: flex-end;
     }
@@ -49,4 +56,9 @@
         background-color: black;
     }
 
+    //for .subheader
+    @include desktop{
+        display: flex;
+        justify-content: center;
+    }
 }

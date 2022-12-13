@@ -34,3 +34,13 @@ export function getEventsSorted(event1, event2) {
   if (event1.distance > event2.distance) return 1;
   if (event1.distance < event2.distance) return -1;
 }
+
+export function getShortDescription(string) {
+  const descriptionArr = string.split(" ");
+
+  const shortenedArr = descriptionArr.slice(0, 20);
+  const dots = "...";
+  const shortenedString = shortenedArr.join(" ");
+  const result = [...shortenedString, dots];
+  return result.join("");
+}

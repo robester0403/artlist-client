@@ -17,7 +17,7 @@ function AddressForm ({formRef, handleAddressSubmit, onClickBack}){
                 </label>
             </div>
             <div className="address-form__button-container">
-                <button className="address-form__button"type="click" onClick={onClickBack}>Back</button>
+                <button className="address-form__button"type="button" onClick={onClickBack}>Back</button>
                 <button className="address-form__button" type="submit">Submit</button>
 
             </div>

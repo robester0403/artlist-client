@@ -31,7 +31,12 @@
         font-size:0.75rem;
         background-color: white;
         cursor:pointer;
+    }
 
-    
+    @include desktop{
+        width:65rem;
+        display: flex;
+        margin-left:auto;
+        margin-right: auto;
     }
 }
