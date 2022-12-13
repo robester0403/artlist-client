@@ -11,7 +11,7 @@ function VenueDetail ({venue}){
             </div>
             <div className="venue-detail__body">
                 <div className="venue-detail__map-container">
-                    <iframe className="venue-detail__map" src={`https://www.google.com/maps/embed?pb=${venue.location_map}`}></iframe>
+                    <iframe className="venue-detail__map" src={`https://www.google.com/maps/embed?pb=${venue.location_map}`} title="venue-map"></iframe>
                 </div>
                 <div className="venue-detail__link-container">
                     <a href={venue.venue_website_link} className="venue-detail__link">

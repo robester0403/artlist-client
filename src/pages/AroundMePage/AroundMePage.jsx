@@ -34,9 +34,6 @@ function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, event
     return (
         <>  
             <Header/>
-            <p>{userLatitude}</p>
-            <p>{userLongitude}</p>
-            <p>{userDate}</p>
             <EventsContainer eventArr ={eventArr}/>
             <Footer/>
         </>

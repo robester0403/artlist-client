@@ -1,0 +1,77 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.address-form{
+
+
+    &__address-container{
+        height:2rem;
+    }
+
+    &__address{
+        background-color: $home-white;
+        padding:0 0.75rem;
+        width:10rem;
+        height:1.5rem;
+        border:none;
+        border-radius: $form-input-border-radius;
+
+        &:focus{
+            background-color: white;
+        }
+    }
+
+    &__city-container{
+        height:2rem;
+    }
+
+    &__city{
+        background-color: $home-white;
+        padding:0 0.5rem;
+        width:10rem;
+        height:1.5rem;
+        border:none;
+        border-radius: $form-input-border-radius;
+
+        &:focus{
+            background-color: white;
+        }
+    }
+
+
+    &__button-container{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button{
+        width: 4.5rem;
+        height:2rem;
+        appearance: none;
+        background-color: $home-white;
+        border-radius: $button-border-radius;
+        border-width: 0;
+        box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+        color: $dark-gray;
+        cursor: pointer;
+
+
+
+        &:focus{
+            box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+        }
+
+        &:hover{
+            box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+            background-color: white;
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            box-shadow: #D6D6E7 0 3px 7px inset;
+            transform: translateY(1px);
+          }
+    }
+
+}
