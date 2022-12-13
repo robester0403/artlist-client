@@ -4,10 +4,10 @@ function EventCard({name, image, description, date, time, distance}){
     if (!distance){
         return(
             <article className="eventcard">
-            <div className="eventcard__container-image">
+            <div className="eventcard__image-container">
                 <img src={image} alt={name} className="eventcard__image"/>
             </div>
-            <div className="eventcard__container-information">
+            <div className="eventcard__information-container">
 
                 <p className="eventcard__title">{name}</p>
                 <p className="eventcard__date">{date}</p>
@@ -20,10 +20,10 @@ function EventCard({name, image, description, date, time, distance}){
     }else{
     return(
         <article className="eventcard">
-            <div className="eventcard__container-image">
+            <div className="eventcard__image-container">
                 <img src={image} alt={name} className="eventcard__image"/>
             </div>
-            <div className="eventcard__container-information">
+            <div className="eventcard__information-container">
 
                 <p className="eventcard__title">{name}</p>
                 <p className="eventcard__date">{date}</p>
