@@ -1,0 +1,54 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/colors" as *;
+@use "../../styles/partials/variables" as *;
+
+.around-me{
+    &__subheader{
+        padding:$event-card-margin;
+        background-color: black;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__nav{
+        width:33%;
+        display: flex;
+        align-items: center;
+        
+    }
+    &__nav-list{
+        width:3.75rem;
+        list-style-type: none;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__nav-item{
+        color:white;
+        font-size: 0.85rem;
+    }
+
+    &__title-container{
+        width:33%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__title{
+        color:white;
+        font-size: 1.25rem;
+    }
+
+    &__search-container{
+        width:33%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    &__search{
+        color:white;
+        border: none;
+        background-color: black;
+    }
+
+}

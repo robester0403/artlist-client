@@ -1,5 +1,6 @@
 import Header from "../../components/Header/Header";
 import Footer from "../../components/Footer/Footer";
+import SubHeader from "../../components/SubHeader/SubHeader";
 
 import { useEffect} from "react";
 import axios from "axios";
@@ -7,6 +8,7 @@ import {getEvents} from "../../utils/api-utils"
 import {getDistance, getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
 import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
+import "./AroundMePage.scss"
 function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, eventArr}){
 
     useEffect(() => {
@@ -32,11 +34,12 @@ function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, event
     }
     
     return (
-        <>  
+        <section className="around-me">  
             <Header/>
+            <SubHeader title={`Around Me`}/>
             <EventsContainer eventArr ={eventArr}/>
             <Footer/>
-        </>
+        </section>
     )
 }
 
