@@ -5,18 +5,33 @@
 
 .venue-detail{
     margin: $filter-container-spacing;
+    display: flex;
+    flex-direction: column;
 
     &__title-container{
         width:100%;
+
+        @include desktop{
+            width:$desktop-width;
+        }
     }
 
     &__title{
         margin: $title-top-bottom-padding 0;
         background-color: white;
+
+
+        @include tablet{
+            font-size: $tablet-title;
+        }
     }
 
     &__hero-container{
         width:100%;
+
+        @include desktop{
+            width:$desktop-width;
+        }
     }
 
     &__hero{
@@ -26,15 +41,24 @@
 
     &__body{
         display: flex;
+        @include desktop{
+            width:$desktop-width;
+        }
     }
 
     &__map-container{
         width:70%;
+
+        @include tablet{
+            width:80%;
+            height:30rem;
+        }
     }
 
     &__map{
         object-fit: cover;
         width: 100%;
+        height:100%;
     }
 
     &__link-container{
@@ -48,6 +72,10 @@
         justify-content: center;
         align-items: center;
         background-color: $dark-gray;
+
+        @include tablet{
+            width:20%;
+        }
     }
 
     &__link{
@@ -56,11 +84,24 @@
 
     &__subtitle-container{
         margin-top:2rem;
+
+        @include desktop{
+            width:$desktop-width;
+        }
     }
 
     &__subtitle{
         font-style: italic;
         font-weight: 300;
         font-size: 1.25rem;
+
+        @include tablet{
+            font-size: $tablet-subtitle;
+        }
     }
+
+
+    @include desktop{
+        align-items: center;
+        }
 }

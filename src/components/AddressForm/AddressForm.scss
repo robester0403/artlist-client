@@ -7,6 +7,11 @@
 
     &__address-container{
         height:2rem;
+
+        @include tablet{
+            height: 3.5rem;
+            width:14rem;
+        }
     }
 
     &__address{
@@ -20,10 +25,21 @@
         &:focus{
             background-color: white;
         }
+
+        @include tablet{
+            height: 2.5rem;
+            width:14rem;
+            font-size: 1rem;
+        }
     }
 
     &__city-container{
         height:2rem;
+
+        @include tablet{
+            height: 3.5rem;
+            width:14rem;
+        }
     }
 
     &__city{
@@ -37,12 +53,22 @@
         &:focus{
             background-color: white;
         }
+
+        @include tablet{
+            height: 2.5rem;
+            width:14rem;
+            font-size: 1rem;
+        }
     }
 
 
     &__button-container{
         display: flex;
         justify-content: space-between;
+
+        @include tablet{
+            width:14rem;
+        }
     }
 
     &__button{
@@ -72,6 +98,11 @@
             box-shadow: #D6D6E7 0 3px 7px inset;
             transform: translateY(1px);
           }
+
+        @include tablet{
+            height: 2.5rem;
+            width:6rem;
+        }
     }
 
 }

@@ -53,34 +53,30 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
 
     if(!clicked){
         return(
-            <div className="home-page__wrap">
-                <section className="home-page">
-                    <div className="home-page__logo-container">
-                        <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
-                    </div>
-                    <div className="home-page__link-container">
-                        <button type="click" onClick = {onClick} className="home-page__link">
-                            Around Me
-                        </button>
-                        <button type="click" onClick = {onClickExplore} className="home-page__link">
-                            Explore
-                        </button>
-                    </div>
-                </section>
-            </div>
+            <section className="home-page">
+                <div className="home-page__logo-container">
+                    <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
+                </div>
+                <div className="home-page__link-container">
+                    <button type="click" onClick = {onClick} className="home-page__link">
+                        Around Me
+                    </button>
+                    <button type="click" onClick = {onClickExplore} className="home-page__link">
+                        Explore
+                    </button>
+                </div>
+            </section>
     )
     }else{
         return(
-            <div className="home-page__wrap">
-                <section className="home-page">
+            <section className="home-page">
                 <div className="home-page__logo-container">
-                        <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
-                    </div>
-                    <div className="home-page__link-container">
-                        <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit} onClickBack={onClickBack}/>
-                    </div>
-                 </section>
-            </div>
+                    <img src="http://localhost:8080/logos/logo-transparent.png" alt="logo" className="home-page__logo"/>
+                </div>
+                <div className="home-page__link-container">
+                    <AddressForm formRef={formRef} handleAddressSubmit={handleAddressSubmit} onClickBack={onClickBack}/>
+                </div>
+            </section>
         )
     }
 }

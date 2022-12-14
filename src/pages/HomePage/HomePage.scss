@@ -3,48 +3,42 @@
 @use "../../styles/partials/variables" as *;
 
 .home-page{
-    position: relative;
-
-    &__wrap{
-        position: relative;
-    }
-
-    &__wrap:before{
-        content: ' ';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100vw;
-        height: 100vh;
-        opacity: 0.7;
-        background-image: url("http://localhost:8080/images/home-page-background.jpg");
-        background-repeat: no-repeat;
-        background-position: 50% 0;
-        background-size: cover;
-    }
+    background-image: url("http://localhost:8080/images/home-page-background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height:100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     &__logo-container{
-        padding-top:5rem;
-        padding-bottom:5rem;
-        width:20rem;
-        height:7rem;
-        margin-left:auto;
-        margin-right: auto;
+        width:17rem;
+        height:10rem;
+
+        @include tablet{
+            width:25rem;
+        }
+
+        @include desktop{
+            width:40rem;
+            height:20rem;
+        }
     }
 
     &__logo{
-        object-fit: cover;
+        object-fit: contain;
         width:100%;
+        height:100%;
     }
 
     &__link-container{
-        margin-top:8rem;
         display: flex;
         flex-direction: column;
         align-items: center;
 
         @include tablet{
-            // width:20rem;
             flex-direction: row;
             justify-content: center;
         }
@@ -78,6 +72,13 @@
 
           @include tablet{
             margin:1rem;
+          }
+
+          @include desktop{
+            margin:2rem;
+            width:10rem;
+            height:4rem;
+            font-size: large;
           }
     }
     

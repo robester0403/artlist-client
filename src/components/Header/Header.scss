@@ -34,7 +34,7 @@
     }
 
     @include desktop{
-        width:65rem;
+        width:$desktop-width;
         display: flex;
         margin-left:auto;
         margin-right: auto;

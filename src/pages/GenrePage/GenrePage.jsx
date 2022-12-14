@@ -3,7 +3,7 @@ import Footer from "../../components/Footer/Footer"
 import GenreDetail from "../../components/GenreDetail/GenreDetail"
 import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
-import {getDateFormat, dateToNum, getEventsSorted} from "../../utils/calculations"
+import {getDateFormat, dateToNum, getEventsSorted, getShortDescription} from "../../utils/calculations"
 import {getGenreEvents, getSingleGenre} from "../../utils/api-utils"
 import { useEffect } from "react"
 import {useParams} from "react-router-dom"
@@ -20,6 +20,7 @@ function GenrePage ({setEventArr, eventArr, userDate, genre, setGenre}){
             const eventArray = []
             events.forEach(event=>{
                 event.date = getDateFormat(event)
+                event.long_description = getShortDescription(event.long_description);
                 event.dateNum = dateToNum(event.date)
                 if (event.dateNum > userDate){
                     eventArray.push(event)
