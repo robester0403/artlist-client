@@ -2,10 +2,17 @@ const { point } = require("@turf/helpers");
 const distance = require("@turf/distance").default;
 
 export function getCurrentDate() {
-  const date = new Date().getDate();
-  const month = new Date().getMonth() + 1;
-  const year = new Date().getFullYear();
-  return Number(`${year}${month}${date}`);
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  let mm = today.getMonth() + 1;
+  let dd = today.getDate();
+
+  if (dd < 10) dd = "0" + dd;
+  if (mm < 10) mm = "0" + mm;
+
+  const formattedDate = yyyy + "-" + mm + "-" + dd;
+  const numberedDate = Number(`${yyyy}${mm}${dd}`);
+  return numberedDate;
 }
 
 export function getDistance(userlat, userlong, eventlat, eventlong) {
@@ -17,10 +24,15 @@ export function getDistance(userlat, userlong, eventlat, eventlong) {
   return result;
 }
 
-export function getDateFormat(array) {
-  const date = array.date.split("T");
-  const arrayDate = date[0];
-  return arrayDate;
+export function getDateFormat(string) {
+  const date = string.split("T");
+  const eventDate = date[0];
+  return eventDate;
+}
+
+export function getTimeFormat(string) {
+  const eventTime = string.substring(11, 16);
+  return eventTime;
 }
 
 export function dateToNum(string) {

@@ -4,14 +4,15 @@ import "./EventsContainer.scss"
 
 
 function EventsContainer({eventArr}){
+    
     return(
         <section className="events-container">
         {eventArr.map(event =>{
             return(
-                <Link to ={`/event/${event.event_id}`} key = {event.event_id}>
+                <Link to ={`/event/${event.id}`} key = {event.id}>
                     <EventCard 
-                    name = {event.event_name}
-                    image={event.event_image}
+                    name = {event.name}
+                    image={event.image}
                     description = {event.long_description}
                     
                     date={event.date}
