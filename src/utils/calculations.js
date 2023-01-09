@@ -25,7 +25,7 @@ export function getDistance(userlat, userlong, eventlat, eventlong) {
 }
 
 export function getDateFormat(string) {
-  const date = string.split("T");
+  const date = string.split(" ");
   const eventDate = date[0];
   return eventDate;
 }

@@ -5,13 +5,12 @@ import EventsContainer from "../../components/EventsContainer/EventsContainer";
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
-import { getDateFormat, getTimeFormat } from "../../utils/calculations";
+import { getDateFormat, getTimeFormat, getShortDescription } from "../../utils/calculations";
 import "./ExplorePage.scss"
 
 
-function ExplorePage ({userDate, setEventArr, eventArr}){
+function ExplorePage ({setEventArr, eventArr}){
     useEffect(() => {
-        console.log(userDate)
         axios
             .get(getEvents())
             .then((response) => {
@@ -20,8 +19,7 @@ function ExplorePage ({userDate, setEventArr, eventArr}){
                     formatEvent.id = event.event_id;
                     formatEvent.name = event.event_name;
                     formatEvent.image = event.event_image;
-                    formatEvent.latitude = event.latitude;
-                    formatEvent.longitude = event.longitude;
+                    formatEvent.long_description = getShortDescription(event.long_description);
                     formatEvent.date = getDateFormat(event.start_time);
                     formatEvent.time = getTimeFormat(event.start_time);
                     return formatEvent;
