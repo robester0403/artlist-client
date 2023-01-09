@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import {getEvent} from "../../utils/api-utils"
-import { getDateFormat } from "../../utils/calculations";
+import { getDateFormat, getTimeFormat } from "../../utils/calculations";
 
 function EventDetailPage (){
     const [name, setName] = useState("");
@@ -29,7 +29,9 @@ function EventDetailPage (){
             .get(getEvent(id))
             .then((response)=>{
                 const information = response.data;
-                const eventDate = getDateFormat(information)
+                const eventDate = getDateFormat(information.start_time);
+                const eventTime = getTimeFormat(information.start_time);
+                console.log(information.start_time)
                 setName(information.event_name);
                 setImage(information.event_image);
                 setGenre(information.genre_name);
@@ -39,7 +41,7 @@ function EventDetailPage (){
                 setOrganization(information.organization_name);
                 setGoogleMap(information.venue_map);
                 setDate(eventDate);
-                setTime(information.time);
+                setTime(eventTime);
                 setTicketLink(information.ticket_link);
                 setGenreId(information.genre_id);
                 setVenueId(information.venue_id);

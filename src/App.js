@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import HomePage from "./pages/HomePage/HomePage";
 import AroundMePage from "./pages/AroundMePage/AroundMePage";
 import ExplorePage from "./pages/ExplorePage/ExplorePage";
@@ -17,7 +17,7 @@ function App() {
     JSON.parse(sessionStorage.getItem("userLongitude")) || 0
   );
   const [userDate, setUserDate] = useState(
-    JSON.parse(sessionStorage.getItem("userDate")) || 0
+    JSON.parse(sessionStorage.getItem("userDate")) || "0000-00-00"
   );
   const [eventArr, setEventArr] = useState(null);
   const [organization, setOrganization] = useState(null);

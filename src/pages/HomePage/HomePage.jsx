@@ -7,7 +7,7 @@ import AddressForm from "../../components/AddressForm/AddressForm";
 
 import "./HomePage.scss"
 
-function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
+function HomePage({setUserLatitude, setUserLongitude}){
     const [clicked, setClicked] = useState(false);
     const formRef = useRef();
     const navigate = useNavigate();
@@ -20,8 +20,6 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
         const dateClicked = getCurrentDate();
         const inputCity = form.user_city.value;
         const address = inputAddress.concat(" ", inputCity)
-        setUserDate(dateClicked)
-        sessionStorage.setItem("userDate", dateClicked)
         axios   
             .get(getCoord(address))
             .then((response)=>{
@@ -36,10 +34,6 @@ function HomePage({setUserLatitude, setUserLongitude, setUserDate}){
     }
 
     const onClickExplore = (e)=>{
-        e.preventDefault();
-        const dateClicked = getCurrentDate();
-        setUserDate(dateClicked);
-        sessionStorage.setItem("userDate", dateClicked)
         navigate("/explore")
     }
     const onClick = (e)=>{

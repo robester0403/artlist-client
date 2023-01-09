@@ -5,29 +5,32 @@ import SubHeader from "../../components/SubHeader/SubHeader";
 import { useEffect} from "react";
 import axios from "axios";
 import {getEvents} from "../../utils/api-utils"
-import {getDistance, getDateFormat, dateToNum, getEventsSorted, getShortDescription} from "../../utils/calculations"
+import {getDistance, getDateFormat, getTimeFormat, dateToNum, getEventsSorted, getShortDescription} from "../../utils/calculations"
 import EventsContainer from "../../components/EventsContainer/EventsContainer"
 
 import "./AroundMePage.scss"
-function AroundMePage({userLatitude, userLongitude, userDate, setEventArr, eventArr}){
+function AroundMePage({userLatitude, userLongitude, setEventArr, eventArr}){
 
     useEffect(() => {
-        axios.get(getEvents()).then((response) => {
-            const events = response.data
-            const eventArray = []
-            events.forEach(event=>{
-                console.log(event)
-                event.long_description = getShortDescription(event.long_description);
-                event.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude)
-                event.userClick = userDate
-                event.date = getDateFormat(event)
-                event.dateNum = dateToNum(event.date)
-                if (event.dateNum > event.userClick){
-                    eventArray.push(event)
-                }
-            })
-            eventArray.sort(getEventsSorted)
-            setEventArr(eventArray)
+        axios
+        .get(getEvents())
+        .then((response) => {
+            const events = response.data.map((event=>{
+                const formatEvent = {};
+                formatEvent.id = event.event_id;
+                formatEvent.name = event.event_name;
+                formatEvent.image = event.event_image;
+                formatEvent.long_description = getShortDescription(event.long_description);
+                formatEvent.latitude = event.latitude;
+                formatEvent.longitude = event.longitude;
+                formatEvent.date = getDateFormat(event.start_time);
+                formatEvent.time = getTimeFormat(event.start_time);
+                formatEvent.distance = getDistance(userLatitude, userLongitude, event.latitude, event.longitude);
+                formatEvent.dateNum = dateToNum(formatEvent.date)
+                return formatEvent;
+            }))
+            events.sort(getEventsSorted)
+            setEventArr(events)
         });
     }, []);
 
