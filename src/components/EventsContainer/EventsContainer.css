@@ -1,0 +1,12 @@
+.events-container {
+  background-color: #252424;
+  padding: 0.5rem 0;
+}
+@media (min-width: 1280px) {
+  .events-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+  }
+}/*# sourceMappingURL=EventsContainer.css.map */

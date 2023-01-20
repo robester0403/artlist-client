@@ -1,0 +1,15 @@
+.footer {
+  background-color: black;
+  padding: 0.685rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer__copyright {
+  color: white;
+  font-size: 0.875rem;
+}
+.footer__post {
+  color: white;
+  font-size: 0.75rem;
+}/*# sourceMappingURL=Footer.css.map */

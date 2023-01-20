@@ -1,0 +1,40 @@
+.explore__subheader {
+  padding: 0.685rem;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.explore__nav {
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+.explore__nav-list {
+  width: 3.75rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.explore__nav-item {
+  color: white;
+  font-size: 0.85rem;
+}
+.explore__title-container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+.explore__title {
+  color: white;
+  font-size: 1.25rem;
+}
+.explore__search-container {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+}
+.explore__search {
+  color: white;
+  border: none;
+  background-color: black;
+}/*# sourceMappingURL=ExplorePage.css.map */

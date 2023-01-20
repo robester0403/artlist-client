@@ -1,0 +1,40 @@
+.around-me__subheader {
+  padding: 0.685rem;
+  background-color: black;
+  display: flex;
+  justify-content: space-between;
+}
+.around-me__nav {
+  width: 33%;
+  display: flex;
+  align-items: center;
+}
+.around-me__nav-list {
+  width: 3.75rem;
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+}
+.around-me__nav-item {
+  color: white;
+  font-size: 0.85rem;
+}
+.around-me__title-container {
+  width: 33%;
+  display: flex;
+  justify-content: center;
+}
+.around-me__title {
+  color: white;
+  font-size: 1.25rem;
+}
+.around-me__search-container {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+}
+.around-me__search {
+  color: white;
+  border: none;
+  background-color: black;
+}/*# sourceMappingURL=AroundMePage.css.map */
