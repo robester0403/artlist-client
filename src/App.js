@@ -10,6 +10,9 @@ import EventDetailPage from "./pages/EventDetailPage/EventDetailPage";
 import "./app.scss";
 
 function App() {
+  // these states should be managed in the components
+  // the routing and state logic should be different layers of abstraction
+  // slightly confusing that you have the parse here inline, consider exporting to a utils or constants file.
   const [userLatitude, setUserLatitude] = useState(
     JSON.parse(sessionStorage.getItem("userLatitude")) || 0
   );
